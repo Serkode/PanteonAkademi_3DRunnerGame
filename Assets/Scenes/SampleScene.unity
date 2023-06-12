@@ -558,3 +558,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runningSpeed: 10
+  xSpeed: 250
+  limitX: 3.75
