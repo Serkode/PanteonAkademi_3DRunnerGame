@@ -23,4 +23,12 @@ public class CheckCollisions : MonoBehaviour
         score++;
         coinText.text = "Score: " + score.ToString();
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("Touched the obstacle!..");
+        }
+    }
 }
