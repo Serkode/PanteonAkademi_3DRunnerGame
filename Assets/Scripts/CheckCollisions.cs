@@ -7,6 +7,14 @@ public class CheckCollisions : MonoBehaviour
 {
     public int score;
     public TextMeshProUGUI coinText;
+    public PlayerController playerController;
+    Vector3 startPos;
+
+    private void Start()
+    {
+        startPos = transform.position;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Coin"))
@@ -15,6 +23,11 @@ public class CheckCollisions : MonoBehaviour
             AddCoin();
             //Destroy(other.gameObject);
             other.gameObject.SetActive(false);
+        }
+        else if (other.CompareTag("End"))
+        {
+            Debug.Log("Congrats!..");
+            playerController.runningSpeed = 0;
         }
     }
 
@@ -29,6 +42,7 @@ public class CheckCollisions : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Touched the obstacle!..");
+            transform.position = startPos;
         }
     }
 }

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4856878080316032051}
+  - component: {fileID: 7755738828770394622}
   m_Layer: 0
   m_Name: Obs_3
   m_TagString: Untagged
@@ -32,6 +33,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &7755738828770394622
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8214794758680139775}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.35, y: 0.5, z: 0.35}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &8735417938059614064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49,15 +66,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7134765656126867415, guid: e29b315d3df5edd408c018ac97e4496a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.07669698
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7134765656126867415, guid: e29b315d3df5edd408c018ac97e4496a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.40244
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7134765656126867415, guid: e29b315d3df5edd408c018ac97e4496a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.3268385
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7134765656126867415, guid: e29b315d3df5edd408c018ac97e4496a, type: 3}
       propertyPath: m_LocalRotation.w
