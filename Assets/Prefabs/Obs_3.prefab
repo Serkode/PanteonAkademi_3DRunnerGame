@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4856878080316032051}
   - component: {fileID: 7755738828770394622}
+  - component: {fileID: 8735417938527157651}
   m_Layer: 0
   m_Name: Obs_3
   m_TagString: Untagged
@@ -43,12 +44,32 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.35, y: 0.5, z: 0.35}
+  m_Extents: {x: 0.5, y: 0.5, z: 0.4}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!95 &8735417938527157651
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8214794758680139775}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0d5d37476d515774f8d185bed627ea88, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &8735417938059614064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57,6 +78,26 @@ PrefabInstance:
     m_TransformParent: {fileID: 4856878080316032051}
     m_Modifications:
     - target: {fileID: 1346069688020910351, guid: e29b315d3df5edd408c018ac97e4496a, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110299479117689581, guid: e29b315d3df5edd408c018ac97e4496a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110299479117689581, guid: e29b315d3df5edd408c018ac97e4496a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110299479117689581, guid: e29b315d3df5edd408c018ac97e4496a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110299479117689581, guid: e29b315d3df5edd408c018ac97e4496a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6708919916634561783, guid: e29b315d3df5edd408c018ac97e4496a, type: 3}
       propertyPath: m_TagString
       value: Obstacle
       objectReference: {fileID: 0}
@@ -119,6 +160,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7134765656126867415, guid: e29b315d3df5edd408c018ac97e4496a, type: 3}
   m_PrefabInstance: {fileID: 8735417938059614064}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2603273323208346503 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6708919916634561783, guid: e29b315d3df5edd408c018ac97e4496a, type: 3}
+  m_PrefabInstance: {fileID: 8735417938059614064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &981531462
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2603273323208346503}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.18954988, y: 0.11558459, z: 0.6509549}
+  m_Center: {x: 0, y: 0.057792287, z: 0}
 --- !u!1 &7751894984511854207 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1346069688020910351, guid: e29b315d3df5edd408c018ac97e4496a, type: 3}
@@ -137,3 +196,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.13471238, y: 0.40823883, z: 0.3989088}
   m_Center: {x: -5.027294e-10, y: -0.0042172004, z: 0.0006714014}
+--- !u!95 &8735417938527157649
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7751894984511854207}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4fd5ea1454fbf1e458cff18392ed830f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
