@@ -34,7 +34,7 @@ public class CheckCollisions : MonoBehaviour
         }
         else if (other.CompareTag("End"))
         {
-            if (ig.namesText[6].text == "Player")
+            if (ig.namesText[6].text == "CUNDULLAH")
             {
                 PlayerFinished();
                 playerAnim.SetBool("Win", true);
