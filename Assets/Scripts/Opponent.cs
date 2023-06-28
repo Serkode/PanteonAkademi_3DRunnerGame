@@ -6,38 +6,43 @@ using UnityEngine.AI;
 public class Opponent : MonoBehaviour
 {
     public NavMeshAgent opponentAgent;
-    public GameObject target, speedBoostObject;
+    public GameObject target, speedBoostObject, gObj;
     bool speedboostTrue = false, bumperObsTrue = false;
     public float speedboostTimer, bumperObsTimer;
     float speed;
     Vector3 startPos;
+    Vector3 stopPos;
 
     float speedBoostTimerAtStart, bumperObsTimerAtStart;
 
     bool endOfTheGame = false;
+
+
+    private InGameRanking ig;
+    public Animator anim;
+
     void Start()
     {
         startPos = transform.position;
         opponentAgent = GetComponent<NavMeshAgent>();
         speed = opponentAgent.speed;
         speedBoostObject.SetActive(false);
+        stopPos = new Vector3(Random.Range(-3.0f, 3.0f), transform.position.y, target.transform.position.z);
 
 
         speedBoostTimerAtStart = speedboostTimer;
         bumperObsTimerAtStart = bumperObsTimer;
         endOfTheGame = false;
+
+        ig = FindObjectOfType<InGameRanking>();
+        anim = gObj.GetComponentInChildren<Animator>();
     }
 
 
     void Update()
     {
-        if(endOfTheGame)
-        {
-            opponentAgent.enabled = false;
-            return;
-        }
 
-        opponentAgent.SetDestination(target.transform.position);
+        opponentAgent.SetDestination(/*target.transform.position*/stopPos);
 
         if (speedboostTrue)
         {
@@ -60,6 +65,18 @@ public class Opponent : MonoBehaviour
                 bumperObsTimer = bumperObsTimerAtStart;
                 bumperObsTrue = false;
             }
+        }
+
+        if (endOfTheGame)
+        {
+            //opponentAgent.enabled = false;
+            opponentAgent.speed = 0;
+        }
+        else if(GameManager.Instance.isGameOver)
+        {
+            opponentAgent.speed = 0;
+            anim.SetBool("Win", false);
+            anim.SetBool("Lose", true);
         }
     }
 
@@ -105,9 +122,31 @@ public class Opponent : MonoBehaviour
         }
         else if (other.CompareTag("End"))
         {
-            speedBoostObject.SetActive(false);
-            Debug.Log("Congrats!..");
-            endOfTheGame = true;
+
+            if (ig.namesText[6].text == transform.name && PlayerPrefs.GetInt("FirsPlace") == 0)
+            {
+                PlayerPrefs.SetInt("FirstPlace", 1);
+                transform.position = new Vector3(transform.position.x, transform.position.y, target.transform.position.z);
+                speedBoostObject.SetActive(false);
+                Debug.Log("Congrats!..");
+                endOfTheGame = true;
+                transform.Rotate(transform.rotation.x, 180, transform.rotation.z, Space.Self);
+
+                anim.SetBool("Win", true);
+                anim.SetBool("Lose", false);
+            }
+            else
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y, target.transform.position.z-1.0f);
+                speedBoostObject.SetActive(false);
+                Debug.Log("Congrats!..");
+                endOfTheGame = true;
+                transform.Rotate(transform.rotation.x, 180, transform.rotation.z, Space.Self);
+
+                anim.SetBool("Win", false);
+                anim.SetBool("Lose", true);
+            }
+
         }
     }
 

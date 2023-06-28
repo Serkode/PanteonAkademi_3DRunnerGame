@@ -15,11 +15,12 @@ public class CheckCollisions : MonoBehaviour
 
     public Animator playerAnim;
     public GameObject player, finishPanel;
-
+    private InGameRanking ig;
     private void Start()
     {
         startPos = transform.position;
         playerAnim = player.GetComponentInChildren<Animator>();
+        ig = FindObjectOfType<InGameRanking>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -33,25 +34,28 @@ public class CheckCollisions : MonoBehaviour
         }
         else if (other.CompareTag("End"))
         {
-            Debug.Log("Congrats!..");
-            playerController.runningSpeed = 0;
-            playerController.enabled = false;
-            transform.Rotate(transform.rotation.x, 180, transform.rotation.z, Space.Self);
-            finishPanel.SetActive(true);
-
-            if(score > maxScore)
+            if (ig.namesText[6].text == "Player")
             {
-                Debug.Log("You Win!..");
+                PlayerFinished();
                 playerAnim.SetBool("Win", true);
                 playerAnim.SetBool("Lose", false);
             }
             else
             {
-                Debug.Log("You Lose!..");
+                PlayerFinished();
                 playerAnim.SetBool("Lose", true);
                 playerAnim.SetBool("Win", false);
             }
         }
+    }
+
+    void PlayerFinished()
+    {
+        playerController.runningSpeed = 0;
+        playerController.enabled = false;
+        transform.Rotate(transform.rotation.x, 180, transform.rotation.z, Space.Self);
+        finishPanel.SetActive(true);
+        GameManager.Instance.isGameOver = true;
     }
 
     public void AddCoin()
