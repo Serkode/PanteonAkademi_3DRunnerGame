@@ -32,7 +32,11 @@ public class CheckCollisions : MonoBehaviour
             //Destroy(other.gameObject);
             other.gameObject.SetActive(false);
         }
-        else if (other.CompareTag("End"))
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("End"))
         {
             if (ig.namesText[6].text == "CUNDULLAH")
             {
